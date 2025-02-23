@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import { urlencoded } from "body-parser";
 
 const app = express();
 
@@ -18,7 +17,7 @@ app.use(
 );
 
 app.use(
-  urlencoded({
+  express.urlencoded({
     extended: true,
     limit: "16kb",
   })
