@@ -2,8 +2,18 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
-    fullName: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
+      trim: true,
+      index: true,
+    },
+
+    fullName: { type: String, required: true, trim: true },
+
+    email: { type: String, required: true, unique: true, trim: true },
     password: { type: String, required: true },
     role: {
       type: String,
@@ -13,6 +23,17 @@ const userSchema = new mongoose.Schema(
     },
   },
   { timestamps: true }
+);
+
+userSchema.pre(
+  ("save",
+  async function (next) {
+    if (!this.isModified("password")) {
+      return next();
+    }
+    this.password = bcrypt.hash(this.password, 10);
+    next();
+  })
 );
 
 const UserModel = mongoose.model("User", userSchema);
