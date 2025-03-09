@@ -1,12 +1,17 @@
 import express from "express";
 
-import authorize from "../middlewares/authorization.middleware.js";
-import { authentication } from "../middlewares/auth.middleware.js";
+const {
+  getAllUsers,
+  deleteUser,
+  promoteUser,
+} = require("../controllers/adminController");
+const { protect } = require("../middlewares/authMiddleware");
+const { authorize } = require("../middlewares/roleMiddleware");
 
-const router = express.Router();
+const adminRouter = express.Router();
 
 router.get("/users", protect, authorize(["admin"]), getAllUsers);
 router.delete("/users/:id", protect, authorize(["admin"]), deleteUser);
 router.put("/users/:id/promote", protect, authorize(["admin"]), promoteUser);
 
-module.exports = router;
+export default adminRouter;

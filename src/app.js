@@ -28,6 +28,7 @@ app.use(express.static("public"));
 //import routes
 import healthcheckRouter from "./routes/healthcheck.routes.js";
 import authRouter from "./routes/auth.routes.js";
+import adminRouter from "./routes/admin.route.js";
 
 // routes
 
@@ -35,5 +36,8 @@ app.use("/api/v1/healthcheck", healthcheckRouter);
 
 // auth routes
 app.use("/api/v1/auth/", authRouter);
+
+// admin routes
+app.use("/auth/v1/admin", adminRouter);
 
 export { app };
