@@ -33,6 +33,7 @@ import patientRouter from "./routes/patient.route.js";
 import doctorRouter from "./routes/doctor.route.js";
 import appointmentRouter from "./routes/appointment.route.js";
 import diagnosisRouter from "./routes/diagnosis.route.js";
+import testRouter from "./routes/test.route.js";
 
 // routes
 
@@ -57,5 +58,9 @@ app.use("/api/v1/appointments", appointmentRouter);
 // diagnosis routes :
 
 app.use("api/v1/diagnosis", diagnosisRouter);
+
+// test routes
+
+app.use("/api/v1/tests", testRouter);
 
 export { app };
