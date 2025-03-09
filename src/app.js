@@ -30,6 +30,7 @@ import healthcheckRouter from "./routes/healthcheck.routes.js";
 import authRouter from "./routes/auth.routes.js";
 import adminRouter from "./routes/admin.route.js";
 import patientRouter from "./routes/patient.route.js";
+import doctorRouter from "./routes/doctor.route.js";
 
 // routes
 
@@ -43,5 +44,8 @@ app.use("/auth/v1/admin", adminRouter);
 
 // patient  routes
 app.use("/api/v1/patients", patientRouter);
+
+// doctor routes:
+app.use("/api/v1/doctors", doctorRouter);
 
 export { app };
