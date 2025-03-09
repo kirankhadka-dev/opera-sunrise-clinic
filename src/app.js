@@ -31,6 +31,8 @@ import authRouter from "./routes/auth.routes.js";
 import adminRouter from "./routes/admin.route.js";
 import patientRouter from "./routes/patient.route.js";
 import doctorRouter from "./routes/doctor.route.js";
+import appointmentRouter from "./routes/appointment.route.js";
+import diagnosisRouter from "./routes/diagnosis.route.js";
 
 // routes
 
@@ -47,5 +49,13 @@ app.use("/api/v1/patients", patientRouter);
 
 // doctor routes:
 app.use("/api/v1/doctors", doctorRouter);
+
+// apointment routes
+
+app.use("/api/v1/appointments", appointmentRouter);
+
+// diagnosis routes :
+
+app.use("api/v1/diagnosis", diagnosisRouter);
 
 export { app };
