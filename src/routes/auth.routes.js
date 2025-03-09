@@ -1,9 +1,12 @@
 import express from "express";
-const {
+import {
   registerUser,
+  getUserProfile,
   loginUser,
-  getProfile,
-} = require("../controllers/authController");
+  updateUserProfile,
+  getUserProfile,
+  deleteUserAccount,
+} from "../controllers/auth.controller";
 
 import { authentication } from "../middlewares/auth.middleware";
 
@@ -11,6 +14,8 @@ const router = express.Router();
 
 router.post("/register", registerUser);
 router.post("/login", loginUser);
-router.get("/profile", authentication, getProfile);
+router.get("/profile", authentication, getUserProfile);
+router.put("/profile", authentication, updateUserProfile);
+router.delete("/profile", authentication, deleteUserAccount);
 
 export default router;

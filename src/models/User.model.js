@@ -22,6 +22,11 @@ UserSchema.pre("save", async function (next) {
   next();
 });
 
+// Method to compare passwords
+UserSchema.methods.isPasswordCorrect = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
+};
+
 const UserModal = model("User", UserSchema);
 
 export default UserModal;
