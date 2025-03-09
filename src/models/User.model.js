@@ -6,7 +6,7 @@ const UserSchema = new Schema({
   password: { type: String, required: true },
   role: {
     type: String,
-    enum: ["patient", "doctor", "receptionist", "admin"],
+    enum: ["patient", "doctor", "admin"],
     required: true,
   },
   contactInfo: String,
@@ -14,6 +14,14 @@ const UserSchema = new Schema({
   dateOfBirth: Date,
   createdAt: { type: Date, default: Date.now },
 });
+
+UserSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) return next();
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+  next();
+});
+
 const UserModal = model("User", UserSchema);
 
 export default UserModal;
