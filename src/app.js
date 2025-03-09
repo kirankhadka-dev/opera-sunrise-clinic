@@ -37,6 +37,7 @@ import testRouter from "./routes/test.route.js";
 import medicationRouter from "./routes/medication.route.js";
 import wardRouter from "./routes/ward.route.js";
 import paymentInvoiceRouter from "./routes/invoice.route.js";
+import notificationAuditRouter from "./routes/notificationAudit.route.js";
 
 // routes
 
@@ -75,5 +76,9 @@ app.use("/api/v1/ward-bed", wardRouter);
 
 // invoice and payment
 app.use("/api/v1/payment-invoice", paymentInvoiceRouter);
+
+// notification :
+
+app.use("/api/v1/notifications", notificationAuditRouter);
 
 export { app };
