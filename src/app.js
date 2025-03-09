@@ -35,6 +35,8 @@ import appointmentRouter from "./routes/appointment.route.js";
 import diagnosisRouter from "./routes/diagnosis.route.js";
 import testRouter from "./routes/test.route.js";
 import medicationRouter from "./routes/medication.route.js";
+import wardRouter from "./routes/ward.route.js";
+import paymentInvoiceRouter from "./routes/invoice.route.js";
 
 // routes
 
@@ -67,5 +69,11 @@ app.use("/api/v1/tests", testRouter);
 // medication routes :
 
 app.use("/api/v1/medications", medicationRouter);
+
+// ward and bed routes:
+app.use("/api/v1/ward-bed", wardRouter);
+
+// invoice and payment
+app.use("/api/v1/payment-invoice", paymentInvoiceRouter);
 
 export { app };
