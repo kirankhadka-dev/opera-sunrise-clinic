@@ -5,6 +5,6 @@ const DoctorSchema = new Schema({
   patientsTreated: [{ type: Schema.Types.ObjectId, ref: "Patient" }],
   diagnoses: [{ type: Schema.Types.ObjectId, ref: "Diagnosis" }],
 });
-const DoctorModel = model("Doctor", DoctorSchema);
+const DoctorModal = model("Doctor", DoctorSchema);
 
-export default DoctorModel;
+export default DoctorModal;
