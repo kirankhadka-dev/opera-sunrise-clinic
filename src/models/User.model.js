@@ -27,6 +27,6 @@ UserSchema.methods.isPasswordCorrect = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
-const UserModal = model("User", UserSchema);
+const UserModel = model("User", UserSchema);
 
-export default UserModal;
+export default UserModel;

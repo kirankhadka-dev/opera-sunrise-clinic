@@ -6,6 +6,6 @@ const AppointmentSchema = new Schema({
   time: { type: String, required: true },
   purpose: { type: String, required: true },
 });
-const AppointmentModal = model("Appointment", AppointmentSchema);
+const AppointmentModell = model("Appointment", AppointmentSchema);
 
-export default AppointmentModal;
+export default AppointmentModel;

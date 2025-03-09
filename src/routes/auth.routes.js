@@ -4,7 +4,6 @@ import {
   getUserProfile,
   loginUser,
   updateUserProfile,
-  getUserProfile,
   deleteUserAccount,
 } from "../controllers/auth.controller";
 

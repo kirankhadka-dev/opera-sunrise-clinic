@@ -6,6 +6,6 @@ const DiagnosisSchema = new Schema({
   date: { type: Date, required: true },
   notes: { type: String, required: true },
 });
-const DiagnosisModal = model("Diagnosis", DiagnosisSchema);
+const DiagnosisModel = model("Diagnosis", DiagnosisSchema);
 
-export default DiagnosisModal;
+export default DiagnosisModel;
