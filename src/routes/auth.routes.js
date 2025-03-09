@@ -10,7 +10,7 @@ import {
 
 import { authentication } from "../middlewares/auth.middleware";
 
-const router = express.Router();
+const authRouter = express.Router();
 
 router.post("/register", registerUser);
 router.post("/login", loginUser);
@@ -18,4 +18,4 @@ router.get("/profile", authentication, getUserProfile);
 router.put("/profile", authentication, updateUserProfile);
 router.delete("/profile", authentication, deleteUserAccount);
 
-export default router;
+export default authRouter;
